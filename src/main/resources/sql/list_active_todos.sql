@@ -1,0 +1,4 @@
+SELECT *
+FROM todo FINAL
+WHERE is_deleted = 0
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY id ORDER BY version DESC) = 1
